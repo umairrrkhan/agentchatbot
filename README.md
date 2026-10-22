@@ -1,17 +1,17 @@
-# Agent Chatbot · Sakura Studio
+# Agent Chatbot
 
-A considered workspace for customer conversations, AI teammates, and bookings. Designed around a **white canvas, pearl glass, moonlight, and cherry blossoms**, with original vector artwork and quiet motion.
+A clean, **black-and-white** workspace for customer conversations, AI teammates, and bookings. Built for a clear desktop presentation and practical mobile use.
 
 Built with **React 19, TypeScript, and Vite**. This repository contains an interactive frontend demo. It runs without API keys, a database, or paid services.
 
 ## Preview
 
-![Sakura Studio desktop workspace: white background, a glass moon, botanical cherry blossoms, and customer support panels](docs/desktop-preview.png)
+![Black-and-white Agent Chatbot desktop workspace](docs/desktop-preview.png)
 
 <details>
 <summary>See the mobile composition</summary>
 
-![Mobile workspace with compact navigation and stacked panels](docs/mobile-preview.png)
+![Mobile workspace with bottom navigation and stacked panels](docs/mobile-preview.png)
 
 </details>
 
@@ -56,43 +56,25 @@ No `.env` file is required for the demo. The application makes no model, messagi
 
 ## Design direction
 
-### White space, with a softer edge
+The interface uses only black and white, with black opacity for secondary text and fine borders. There are no colored accents, gradients, floral illustrations, glass effects, or decorative animations.
 
-The app uses a white base rather than a dark dashboard. Warm charcoal text and generous spacing provide structure; rosewater, lavender, sage, and pale blue provide restrained accents. Borders are fine and tinted. Shadows are shallow, with transparent surfaces and small highlights to suggest glass without obscuring the content.
+- **White surfaces and black type:** clear information hierarchy without scattered color.
+- **Black primary actions:** obvious, consistent controls with visible keyboard focus.
+- **Simple panels:** restrained borders and spacing instead of decorative shadows.
+- **Self-hosted fonts:** DM Sans and Manrope variable fonts load from the app itself.
+- **Compact summary:** a practical inbox action and team status replace the decorative hero.
+- **Monochrome favicon:** matches the interface and browser theme.
 
-| Element           | Treatment                                                                                                        |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Canvas            | White `#ffffff`, with very faint rose reflections.                                                               |
-| Main ink          | Warm charcoal `#403d43`.                                                                                         |
-| Sakura accent     | Muted rose `#ba708f`; deeper rose for actions and selected navigation.                                           |
-| Botanical palette | Creamy pink petal tips, warmer pink centers, amber stamens, taupe branches, and pale sage leaves.                |
-| Glass             | Translucent white, white edge highlights, subtle blur, and restrained rose shadows.                              |
-| Typography        | Self-hosted DM Sans and Manrope variable fonts; a system serif italic provides the editorial accent in the hero. |
+### Mobile layout
 
-### Original artwork
-
-The hero combines several intentionally layered elements:
-
-- A custom inline SVG cherry-blossom branch, with Bézier petals, gradients, veins, stamens, buds, and leaves.
-- A CSS glass moon with a translucent surface, inner rim, reflected highlight, and subtle crater shading.
-- Fine orbital lines and a floating frosted note.
-- Individual drifting petals around the botanical composition.
-
-The artwork is vector/CSS-based. There is no hero image download, video, canvas renderer, or animation library. The sakura favicon is also an original SVG.
-
-### Motion
-
-The branch sways slowly, the moon rises a few pixels, the glass note floats, and three petals drift. Hover states use small shifts and light shadow changes. Dialogs have a brief entrance transition.
-
-Animation uses transforms/translation and opacity. All authored motion and transitions are disabled when the visitor has `prefers-reduced-motion: reduce` enabled.
-
-### Responsive composition
-
-- Wide screens show the full sidebar and a two-column conversations/bookings layout.
-- Intermediate screens stack the content panels and reduce decorative elements.
-- Small screens use an icon rail and two-column metric cards.
-- On phones, the hero becomes a taller composition with the glass moon and blossoms below the main headline.
-- Settings and help remain reachable from the compact navigation rail.
+- At widths below 760px, the sidebar becomes a fixed bottom navigation bar.
+- The navigation scrolls horizontally so every workspace section remains reachable. Settings has its own button in the header.
+- Safe-area padding keeps the bar and page content clear of phone home indicators.
+- Metric cards use two columns; conversation, booking, and agent panels stack vertically.
+- On narrow phones, the duplicate team summary is omitted from the hero; agents remain available in the team panel and navigation.
+- Form inputs use 16px text on phones to avoid automatic input zoom in mobile Safari.
+- Dialogs fit the available viewport, with scrolling for long threads and forms.
+- All screens are usable without hover. There is no decorative motion.
 
 ## What you can do
 
@@ -113,14 +95,14 @@ Animation uses transforms/translation and opacity. All authored motion and trans
 
 ## Technology and structure
 
-| Technology                | Role                                                                       |
-| ------------------------- | -------------------------------------------------------------------------- |
-| React 19                  | Component rendering, local state, events, and modal lifecycle.             |
-| TypeScript                | Typed conversations, messages, bookings, and component props.              |
-| Vite 6                    | Development server, optimized production bundling, and asset handling.     |
-| Lucide React              | Consistent interface icons.                                                |
-| Fontsource variable fonts | Locally served DM Sans and Manrope; no Google Fonts request.               |
-| Plain CSS                 | Theme, responsive layouts, glass effects, illustration layers, and motion. |
+| Technology                | Role                                                                   |
+| ------------------------- | ---------------------------------------------------------------------- |
+| React 19                  | Component rendering, local state, events, and modal lifecycle.         |
+| TypeScript                | Typed conversations, messages, bookings, and component props.          |
+| Vite 6                    | Development server, optimized production bundling, and asset handling. |
+| Lucide React              | Consistent interface icons.                                            |
+| Fontsource variable fonts | Locally served DM Sans and Manrope; no Google Fonts request.           |
+| Plain CSS                 | Monochrome theme, responsive layouts, and component styling.           |
 
 ```text
 agentchatbot/
@@ -128,9 +110,9 @@ agentchatbot/
 │   ├── desktop-preview.png     # Screenshot of the current desktop design
 │   └── mobile-preview.png      # Screenshot of the current mobile design
 ├── public/
-│   └── favicon.svg             # Sakura brand mark
+│   └── favicon.svg             # Monochrome chat brand mark
 ├── src/
-│   ├── main.tsx                # App, seed data, local persistence, artwork, and views
+│   ├── main.tsx                # App, seed data, local persistence, and views
 │   └── style.css               # Shared theme, layouts, motion, and responsive rules
 ├── index.html                  # Entry document, metadata, and light browser theme
 ├── package.json                # Runtime dependencies and development scripts
@@ -189,7 +171,7 @@ These features were checked during implementation. The project has not undergone
 The current revision was checked with:
 
 - `npm run build`: TypeScript and optimized Vite build completed successfully.
-- Desktop and mobile browser inspection of the white theme, illustration, and panel layout.
+- Desktop and mobile browser inspection of the monochrome theme and panel layout.
 - Agent creation and pause/reactivation controls.
 - Conversation search, opening a thread, and sending a local reply.
 - Booking creation, persistence after refresh, and cancellation.
@@ -199,7 +181,7 @@ The current revision was checked with:
 
 The browser checks used Playwright with Chromium as an implementation-time smoke check. They are not an installed repository test suite. Screenshot previews use seed data rather than test-created customers.
 
-For manual acceptance, try the workflows above, refresh the page, and confirm that the saved data persists. Test at a narrow phone width as well as a desktop width. Enable reduced motion in your operating system or browser tools to see the still composition.
+For manual acceptance, try the workflows above, refresh the page, and confirm that the saved data persists. Test at a narrow phone width as well as a desktop width. The current design uses a still composition.
 
 ## Deploy to Vercel
 

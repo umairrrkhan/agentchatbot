@@ -55,7 +55,7 @@ const initialConversations: Conversation[] = [
     name: "Olivia Rhye",
     initials: "OR",
     color: "pink",
-    message: "Perfect, thank you so much! 🌸",
+    message: "Perfect, thank you so much! ",
     time: "2 min ago",
     channel: "Website",
     status: "Resolved",
@@ -73,7 +73,7 @@ const initialConversations: Conversation[] = [
         text: "You’re all set for 2:30 PM tomorrow. A confirmation has been sent to your email.",
         own: true,
       },
-      { text: "Perfect, thank you so much! 🌸", own: false },
+      { text: "Perfect, thank you so much! ", own: false },
     ],
   },
   {
@@ -171,147 +171,6 @@ function useSaved<T>(key: string, initial: T) {
     },
   ] as const;
 }
-/** Original botanical illustration; vector artwork stays sharp at every size. */
-function Blossom({ className = "" }: { className?: string }) {
-  const blooms = [
-    [466, 45, 0.85],
-    [425, 77, 1],
-    [403, 121, 0.7],
-    [365, 104, 0.95],
-    [338, 149, 1.15],
-    [290, 180, 0.8],
-    [272, 135, 0.65],
-    [244, 203, 1],
-    [213, 236, 0.7],
-    [164, 244, 0.85],
-    [112, 218, 0.65],
-    [367, 210, 0.9],
-    [393, 244, 0.65],
-    [430, 177, 0.8],
-    [468, 201, 0.65],
-    [304, 261, 0.75],
-    [326, 298, 0.8],
-    [252, 301, 0.65],
-    [192, 280, 0.7],
-  ];
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 540 360"
-      fill="none"
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient
-          id="branch-ink"
-          x1="500"
-          y1="300"
-          x2="190"
-          y2="100"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="#9a7770" />
-          <stop offset="1" stopColor="#c7a497" />
-        </linearGradient>
-        <radialGradient id="petal-wash" cx=".45" cy=".1" r=".95">
-          <stop stopColor="#fffafc" />
-          <stop offset=".52" stopColor="#fbd9e2" />
-          <stop offset="1" stopColor="#e695ae" />
-        </radialGradient>
-        <radialGradient id="flower-heart">
-          <stop stopColor="#de7898" />
-          <stop offset="1" stopColor="#f9cedb" stopOpacity="0" />
-        </radialGradient>
-        <filter id="bloom-shadow" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow
-            dx="0"
-            dy="2"
-            stdDeviation="2"
-            floodColor="#c591a0"
-            floodOpacity=".16"
-          />
-        </filter>
-        <g id="sakura-bloom">
-          {[0, 72, 144, 216, 288].map((angle, i) => (
-            <g
-              key={angle}
-              transform={`rotate(${angle}) scale(${i % 2 ? ".91 1" : "1 1"})`}
-            >
-              <path
-                d="M0 3C-5-2-15-7-16-17C-17-28-8-32-2-27L0-24L3-28C12-32 20-22 14-12C11-6 4-1 0 3Z"
-                fill="url(#petal-wash)"
-                stroke="#eeb9ca"
-                strokeWidth=".5"
-              />
-              <path
-                d="M0 1C-2-7-4-14-2-21"
-                stroke="#de9fb5"
-                strokeWidth=".55"
-                opacity=".5"
-              />
-            </g>
-          ))}
-          <circle r="12" fill="url(#flower-heart)" />
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
-            <g key={a} transform={`rotate(${a})`}>
-              <path d="M0 0L2-8" stroke="#c98592" strokeWidth=".65" />
-              <circle cx="2" cy="-8" r="1.2" fill="#bfa06b" />
-            </g>
-          ))}
-          <circle r="2.3" fill="#dba4a2" />
-        </g>
-      </defs>
-      <g stroke="url(#branch-ink)" strokeLinecap="round">
-        <path
-          d="M547 354C487 320 431 291 394 259C352 221 348 183 338 151C329 116 369 86 425 77L472 43"
-          strokeWidth="4"
-        />
-        <path
-          d="M394 259C334 254 300 235 245 205C196 182 160 207 111 217M339 153C305 151 292 146 271 134M354 189C388 195 407 183 429 177L470 201M335 238C317 249 311 276 327 300M301 233C276 247 268 276 252 300M226 198L212 236L164 244M250 205C273 200 282 185 290 180M374 226L367 210M209 236L193 280M425 77L464 45M378 110L365 104M401 89L403 121"
-          strokeWidth="1.8"
-        />
-      </g>
-      <g fill="#bdc5a5" opacity=".55">
-        <path d="M309 244Q281 225 288 214Q312 217 309 244Z" />
-        <path d="M405 275Q417 248 430 254Q433 270 405 275Z" />
-        <path d="M204 207Q179 192 182 182Q203 184 204 207Z" />
-      </g>
-      <g filter="url(#bloom-shadow)">
-        {blooms.map(([x, y, scale], i) => (
-          <g
-            key={i}
-            transform={`translate(${x} ${y}) rotate(${i * 31}) scale(${scale})`}
-          >
-            <use href="#sakura-bloom" />
-          </g>
-        ))}
-      </g>
-      <g fill="#e4a0b8">
-        <ellipse
-          cx="451"
-          cy="107"
-          rx="5"
-          ry="9"
-          transform="rotate(35 451 107)"
-        />
-        <ellipse
-          cx="234"
-          cy="155"
-          rx="4"
-          ry="8"
-          transform="rotate(-22 234 155)"
-        />
-        <ellipse
-          cx="144"
-          cy="265"
-          rx="4"
-          ry="7"
-          transform="rotate(24 144 265)"
-        />
-      </g>
-    </svg>
-  );
-}
 function App() {
   const [timezone, setTimezone] = useSaved("ac-v1-timezone", "Asia/Kolkata");
   const [page, setPage] = useState("Overview");
@@ -354,7 +213,7 @@ function App() {
   const [filter, setFilter] = useState("All");
   const [workspace, setWorkspace] = useSaved(
     "ac-v1-workspace",
-    "Sakura Studio",
+    "Studio Workspace",
   );
   const notify = (text: string) => {
     setToast(text);
@@ -546,10 +405,11 @@ function App() {
             <Command size={22} />
           </span>
           agent<span className="brand-light">chatbot</span>
-          <span className="brand-dot">✦</span>
         </a>
         <button className="workspace" onClick={() => navigate("Settings")}>
-          <span className="workspace-icon">✿</span>
+          <span className="workspace-icon">
+            <Command size={20} />
+          </span>
           <span>
             <strong>{workspace}</strong>
             <small>
@@ -633,6 +493,13 @@ function App() {
             <span>{page}</span>
           </div>
           <div className="header-right">
+            <button
+              className="icon-button mobile-settings"
+              aria-label="Workspace settings"
+              onClick={() => navigate("Settings")}
+            >
+              <Settings2 size={19} />
+            </button>
             <span className="system-status">
               <i />
               All systems operational
@@ -653,17 +520,17 @@ function App() {
           <div className="page-title">
             <div>
               <div className="eyebrow">
-                <span /> YOUR WORKSPACE, IN HARMONY
+                <span /> WORKSPACE / OVERVIEW
               </div>
               <h1>
-                {page === "Overview" ? "Your day, a little lighter." : page}
-                <span className="title-symbol">
+                {page === "Overview" ? "Your workspace. Under control." : page}
+                <span className="title-symbol" aria-hidden="true">
                   {page === "Overview" ? "☾" : "✧"}
                 </span>
               </h1>
               <p>
                 {page === "Overview"
-                  ? "A thoughtful space for your team, your customers, and you."
+                  ? "Conversations, bookings, and your team. All in one place."
                   : page === "Conversations"
                     ? "Every conversation, thoughtfully taken care of."
                     : page === "AI Agents"
@@ -686,62 +553,47 @@ function App() {
           </div>
           {page === "Overview" && (
             <>
-              <section className="hero" aria-label="A little more human">
+              <section className="hero" aria-label="Customer care overview">
                 <div className="hero-copy">
-                  <span className="hero-label">
-                    <span className="hero-line" /> INTELLIGENCE, WITH A SOFTER
-                    SIDE
-                  </span>
+                  <span className="hero-label">CUSTOMER CARE, SIMPLIFIED</span>
                   <h2>
-                    A little less busy.
-                    <br />A little more <em>human.</em>
+                    Less to manage.
+                    <br />
+                    More moving forward.
                   </h2>
                   <p>
-                    Let your AI team tend to the everyday.
+                    Keep every conversation moving.
                     <br />
-                    Make space for the moments that matter.
+                    Give your customers a clear next step.
                   </p>
-                  <button onClick={() => navigate("AI Agents")}>
-                    Meet your AI team{" "}
-                    <span>
-                      <ArrowUpRight size={16} />
-                    </span>
+                  <button onClick={() => navigate("Conversations")}>
+                    Open your inbox <ArrowUpRight size={17} />
                   </button>
-                  <div className="hero-edition">
-                    <span>01 — THE ART OF DOING LESS</span>
-                    <span>暮らしに、余白を。</span>
-                  </div>
                 </div>
-                <div className="hero-art" aria-hidden="true">
-                  <div className="art-halo" />
-                  <div className="orbit orbit-one" />
-                  <div className="orbit orbit-two" />
-                  <div className="moon">
-                    <div className="moon-crater" />
-                    <span className="moon-glint" />
+                <div className="team-snapshot">
+                  <div className="snapshot-heading">
+                    <span>YOUR TEAM</span>
+                    <span>{agents.filter((a) => a.active).length} ACTIVE</span>
                   </div>
-                  <Blossom className="sakura" />
-                  <span className="star star-one">✧</span>
-                  <span className="star star-two">✦</span>
-                  <span className="floating-petal petal-one" />
-                  <span className="floating-petal petal-two" />
-                  <span className="floating-petal petal-three" />
-                  <div className="glass-note">
-                    <span className="note-icon">
-                      <Sparkles size={16} />
-                    </span>
-                    <div>
-                      <strong>In good hands.</strong>
-                      <small>
-                        {agents.filter((a) => a.active).length} agents, quietly
-                        taking care.
-                      </small>
-                    </div>
-                    <span className="live-dot" />
+                  {agents.slice(0, 3).map((agent, i) => (
+                    <button
+                      key={agent.name}
+                      onClick={() => navigate("AI Agents")}
+                    >
+                      <span className="snapshot-number">0{i + 1}</span>
+                      <span>
+                        <strong>{agent.name}</strong>
+                        <small>{agent.role}</small>
+                      </span>
+                      <span className="snapshot-status">
+                        {agent.active ? "Active" : "Paused"}
+                      </span>
+                      <ArrowUpRight size={15} />
+                    </button>
+                  ))}
+                  <div className="snapshot-footer">
+                    Always ready for the next conversation.
                   </div>
-                  <span className="art-caption">
-                    A LITTLE MOONLIGHT. A LITTLE POSSIBILITY.
-                  </span>
                 </div>
               </section>
               <div className="section-bar">
@@ -820,15 +672,7 @@ function App() {
                         <polyline
                           points={s.points}
                           fill="none"
-                          stroke={
-                            s.color === "pink"
-                              ? "#c9809e"
-                              : s.color === "purple"
-                                ? "#a29ac6"
-                                : s.color === "blue"
-                                  ? "#8dabc1"
-                                  : "#b6a181"
-                          }
+                          stroke="#000"
                           strokeWidth="1.7"
                         />
                       </svg>
@@ -928,7 +772,7 @@ function App() {
                     >
                       <span className={`agent-avatar ${a.color}`}>
                         {a.name === "Sakura" ? (
-                          <span>✿</span>
+                          <MessagesSquare size={22} />
                         ) : a.name === "Luna" ? (
                           <Moon size={22} />
                         ) : (
@@ -1127,10 +971,7 @@ function App() {
             </section>
           )}
           <footer>
-            <span>
-              <span className="footer-flower">✿</span> Thoughtfully automated.
-              Beautifully human.
-            </span>
+            <span>Thoughtfully automated. Beautifully human.</span>
             <span>
               <span className="live-dot" />
               Demo workspace <span className="footer-separator">·</span> Made
@@ -1426,7 +1267,7 @@ function App() {
                   Open a customer thread, send a reply, or resolve it.
                 </p>
                 <p>
-                  <b>3. Keep your calendar blooming</b>
+                  <b>3. Manage your bookings</b>
                   <br />
                   Create and manage customer bookings.
                 </p>
